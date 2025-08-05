@@ -9,8 +9,7 @@ export const convertHTMLtoPDF = async (html: string) => {
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--hide-scrollbars',
-      '--disable-web-security',
-      '--font-render-hinting=none'
+      '--disable-web-security'
     ]
   });
   const page = await browser.newPage();
