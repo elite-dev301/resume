@@ -3,10 +3,22 @@ import puppeteer from 'puppeteer-core';
 
 export const convertHTMLtoPDF = async (html: string) => {
   const browser = await puppeteer.launch({
-    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security', '--font-render-hinting=none'],
-    executablePath: await chromium.executablePath(
-      `https://github.com/Sparticuz/chromium/releases/download/v123.0.1/chromium-v123.0.1-pack.tar`
-    ),
+    args: [
+      ...chromium.args,
+      '--hide-scrollbars',
+      '--disable-web-security',
+      '--font-render-hinting=none',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--disable-software-rasterizer',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-renderer-backgrounding',
+      '--single-process' // This can help with missing libraries
+    ],
+    executablePath: await chromium.executablePath(),
     headless: true
   });
   const page = await browser.newPage();
