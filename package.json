@@ -8,13 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aldabil/react-scheduler": "^3.1.2",
+    "@aldabil/react-scheduler": "3.0.5",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.2.0",
-    "@mui/material": "^7.2.0",
-    "@mui/material-nextjs": "^7.2.0",
+    "@mui/icons-material": "^6.4.2",
+    "@mui/material": "^6.4.2",
+    "@mui/material-nextjs": "^6.4.2",
     "@mui/x-charts": "^7.29.1",
     "@mui/x-date-pickers": "^7.29.4",
     "@sparticuz/chromium-min": "^138.0.1",
