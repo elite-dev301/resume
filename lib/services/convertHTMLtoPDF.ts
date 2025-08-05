@@ -1,4 +1,4 @@
-import chromium from '@sparticuz/chromium-min';
+import chromium from '@sparticuz/chromium';
 import puppeteer from 'puppeteer-core';
 
 export const convertHTMLtoPDF = async (html: string) => {
