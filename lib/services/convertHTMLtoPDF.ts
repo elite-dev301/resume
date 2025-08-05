@@ -10,7 +10,7 @@ export const convertHTMLtoPDF = async (html: string) => {
       '--disable-gpu',
       '--single-process'],
     executablePath: await chromium.executablePath(
-      `https://github.com/Sparticuz/chromium/releases/download/v138.0.2/chromium-v138.0.2-layer.x64.zip`
+      `https://github.com/Sparticuz/chromium/releases/download/v138.0.2/chromium-v138.0.2-pack.x64.tar`
     ),
     headless: true
   });
