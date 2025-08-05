@@ -3,9 +3,14 @@ import puppeteer from 'puppeteer-core';
 
 export const convertHTMLtoPDF = async (html: string) => {
   const browser = await puppeteer.launch({
-    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security', '--font-render-hinting=none'],
+    args: [...chromium.args,
+      '--hide-scrollbars', '--disable-web-security', '--font-render-hinting=none', '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--single-process'],
     executablePath: await chromium.executablePath(
-      `https://github.com/Sparticuz/chromium/releases/download/v138.0.2/chromium-v138.0.2-pack.arm64.tar`
+      `https://github.com/Sparticuz/chromium/releases/download/v138.0.2/chromium-v138.0.2-layer.x64.zip`
     ),
     headless: true
   });
