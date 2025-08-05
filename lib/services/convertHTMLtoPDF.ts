@@ -1,24 +1,12 @@
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 import puppeteer from 'puppeteer-core';
 
 export const convertHTMLtoPDF = async (html: string) => {
   const browser = await puppeteer.launch({
-    args: [
-      ...chromium.args,
-      '--hide-scrollbars',
-      '--disable-web-security',
-      '--font-render-hinting=none',
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-      '--disable-software-rasterizer',
-      '--disable-background-timer-throttling',
-      '--disable-backgrounding-occluded-windows',
-      '--disable-renderer-backgrounding',
-      '--single-process' // This can help with missing libraries
-    ],
-    executablePath: await chromium.executablePath(),
+    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security', '--font-render-hinting=none'],
+    executablePath: await chromium.executablePath(
+      `https://github.com/Sparticuz/chromium/releases/download/v138.0.2/chromium-v138.0.2-pack.arm64.tar`
+    ),
     headless: true
   });
   const page = await browser.newPage();
