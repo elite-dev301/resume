@@ -1,6 +1,6 @@
 {
-  "name": "Resume-Huji",
-  "version": "1.0.0",
+  "name": "Resume",
+  "version": "3.1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -8,14 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aldabil/react-scheduler": "^3.0.5",
+    "@aldabil/react-scheduler": "^3.1.2",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.3.0",
-    "@mui/lab": "^7.0.0-beta.15",
-    "@mui/material": "^7.3.0",
-    "@mui/material-nextjs": "^7.3.0",
+    "@mui/icons-material": "^7.2.0",
+    "@mui/material": "^7.2.0",
+    "@mui/material-nextjs": "^7.2.0",
     "@mui/x-charts": "^7.29.1",
     "@mui/x-date-pickers": "^7.29.4",
     "@sparticuz/chromium-min": "^138.0.1",
@@ -31,7 +30,7 @@
     "moment": "^2.30.1",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.3",
-    "next": "^14.2.31",
+    "next": "14.2.5",
     "next-auth": "^5.0.0-beta.25",
     "openai": "^4.92.0",
     "puppeteer-core": "^24.12.1",

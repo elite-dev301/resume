@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       try {
         const pdfBuffer = await convertHTMLtoPDF(application.resume);
 
-        return new NextResponse(pdfBuffer, {
+        return new NextResponse(Buffer.from(pdfBuffer), {
           status: 200, headers: {
             'Content-Type': 'application/pdf',
             'Content-Disposition': 'attachment; filename=resume.pdf',
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     return Response.json({ message: 'Error saving job & profile' }, { status: 500 });
   }
 
-  return new NextResponse(resume, {
+  return new NextResponse(Buffer.from(resume), {
     status: 200, headers: {
       'Content-Type': 'application/pdf',
       'Content-Disposition': 'attachment; filename=resume.pdf',

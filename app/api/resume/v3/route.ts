@@ -166,7 +166,7 @@ ${checkJob.link}
     );
   }
 
-  return new NextResponse(resume, {
+  return new NextResponse(Buffer.from(resume), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
