@@ -125,7 +125,7 @@ export async function POST(request: Request) {
 
     if (newJob) {
       await fetch(
-        "https://hooks.slack.com/services/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",
+        process.env.SLACK_URL as string,
         {
           method: "POST",
           headers: {
@@ -145,7 +145,7 @@ ${checkJob.link}
       );
     } else {
       await fetch(
-        "https://hooks.slack.com/services/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",
+        process.env.SLACK_URL as string,
         {
           method: "POST",
           headers: {
