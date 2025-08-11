@@ -145,7 +145,7 @@ function generateResumeHTML(profile: IProfile, resp: string) {
 
   console.log("Standardized", standardized_job_title);
 
-  let job_title = standardized_job_title.includes(':') ? standardized_job_title.split(':')[1].trim() : standardized_job_title;
+  let job_title = standardized_job_title ? (standardized_job_title.includes(':') ? standardized_job_title.split(':')[1].trim() : standardized_job_title) : "";
   job_title = job_title.includes('Standardized Job Title ') ? job_title.split('Standardized Job Title ')[1].trim() : job_title;
 
   const html = profile.mainHTML;
@@ -193,7 +193,7 @@ function generateResumeHTML(profile: IProfile, resp: string) {
         .map((exp, idx) =>
           experienceHTML
             .replace("{Company}", exp.company)
-            .replace("{Role}", idx === 0 ? job_title : exp.role)
+            .replace("{Role}", (idx === 0 && job_title !== "") ? job_title : exp.role)
             .replace("{Period}", exp.period)
             .replace(
               "{Job-Descriptions}",

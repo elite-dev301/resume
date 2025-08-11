@@ -61,8 +61,6 @@ export async function POST(request: Request) {
       created: new Date(),
       resume: html
     }).save();
-
-
   } catch (error) {
     console.error("Error saving job & profile:", error);
     return Response.json({ message: 'Error saving job & profile' }, { status: 500 });

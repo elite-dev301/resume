@@ -9,7 +9,8 @@ export const convertHTMLtoPDF = async (html: string) => {
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--hide-scrollbars',
-      '--disable-web-security'
+      '--disable-web-security',
+      '--font-render-hinting=none'
     ]
   });
   const page = await browser.newPage();
@@ -20,7 +21,8 @@ export const convertHTMLtoPDF = async (html: string) => {
   const pdfBuffer = await page.pdf({
     format: 'A4',
     printBackground: true,
-    margin: { top: "0.5in", bottom: "0.5in" }
+    margin: { top: "0.5in", bottom: "0.5in" },
+    scale: 1.0
   });
 
   await browser.close();
