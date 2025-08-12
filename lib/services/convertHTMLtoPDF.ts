@@ -4,13 +4,15 @@ export const convertHTMLtoPDF = async (html: string) => {
   const browser = await puppeteer.launch({
     headless: true,
     args: [
+      ...puppeteer.defaultArgs(),
       '--no-sandbox',
       '--disable-setuid-sandbox',
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--hide-scrollbars',
       '--disable-web-security',
-      '--font-render-hinting=none'
+      '--font-render-hinting=none',
+      '--single-process'
     ]
   });
   const page = await browser.newPage();
@@ -23,8 +25,7 @@ export const convertHTMLtoPDF = async (html: string) => {
   const pdfBuffer = await page.pdf({
     format: 'A4',
     printBackground: true,
-    margin: { top: "0.5in", bottom: "0.5in" },
-    scale: 1.0
+    margin: { top: "0.5in", bottom: "0.5in" }
   });
 
   await browser.close();
