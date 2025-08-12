@@ -15,6 +15,8 @@ export const convertHTMLtoPDF = async (html: string) => {
   });
   const page = await browser.newPage();
 
+  await page.setViewport({...page.viewport()!, deviceScaleFactor: 2});
+
   await page.setContent(html);
 
   // Generate PDF from the page content
