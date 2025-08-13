@@ -5,7 +5,7 @@ export async function GET(request: Request) {
   await dbConnectMongoose();
 
   try {
-    const members = await Member.find();
+    const members = await Member.find().select({ name: 1 }).read('primary').lean().exec();
     return Response.json(members, {
       status: 200, headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
