@@ -14,6 +14,9 @@ const getBrowser = async (): Promise<Browser> => {
         '--hide-scrollbars',
         '--disable-web-security',
         '--font-render-hinting=none',
+        '--disable-font-subpixel-positioning', // Add this
+        '--disable-lcd-text',                  // Add this
+        '--force-color-profile=srgb',         // Add this
         '--single-process',
         '--disable-background-timer-throttling',
         '--disable-backgrounding-occluded-windows',
@@ -31,15 +34,18 @@ export const convertHTMLtoPDF = async (html: string) => {
   const page = await browser.newPage();
 
   try {
-    await page.setViewport({ ...page.viewport()!, deviceScaleFactor: 2 });
 
     await page.setContent(html);
+
+    // Wait for fonts to load
+    await page.evaluateHandle('document.fonts.ready');
 
     // Generate PDF from the page content
     const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true,
-      margin: { top: "0.5in", bottom: "0.5in" }
+      margin: { top: "0.5in", bottom: "0.5in" },
+      preferCSSPageSize: true
     });
 
     return pdfBuffer;
