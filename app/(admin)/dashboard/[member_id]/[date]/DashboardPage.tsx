@@ -30,6 +30,7 @@ import { openPopup } from "@/lib/services/openPopup";
 import { Scheduler } from "@aldabil/react-scheduler";
 import { ProfileColors } from "@/lib/color";
 import { DayHours } from "@aldabil/react-scheduler/types";
+import { Profile } from "@/types/profile";
 
 export default function DashboardPage({
   member_id,
@@ -75,16 +76,25 @@ export default function DashboardPage({
     placeholderData: keepPreviousData
   });
 
+  const { data: profiles } = useQuery<Profile[]>({
+    queryKey: ["profiles"],
+    queryFn: async () => {
+      const res = await fetch(`/api/profiles`);
+      return res.json();
+    },
+    placeholderData: keepPreviousData
+  });
+
   const handleMemberChange = (e: SelectChangeEvent) => router.push(`/dashboard/${e.target.value as string}/${moment(date).format("YYYY-MM-DD")}`);
   const handleDateChange = (date: Moment | null) => router.push(`/dashboard/${member_id}/${moment(date || new Date()).format("YYYY-MM-DD")}`);
 
-  const events = useMemo(() => data?.map((e: DashboardInterview) => ({
+  const events = useMemo(() => profiles ? data?.map((e: DashboardInterview) => ({
     event_id: e._id,
     title: `${e.job_details.company}-${e.profile_details.name} (${e.member_details.name})`,
     start: new Date(e.start_date),
     end: new Date(e.end_date),
-    color: ProfileColors[e.profile_details.name] ?? "#50b500"
-  })) ?? [], [data]);
+    color: ProfileColors[profiles.findIndex(p => p.name === e.profile_details.name)] ?? "#50b500"
+  })) ?? [] : [], [data, profiles]);
 
   const startHour = useMemo(() => Math.min(9, ...(data?.map(e => new Date(e.start_date).getHours()) ?? [])), [data]);
   const endHour = useMemo(() => Math.max(17, ...(data?.map(e => new Date(e.end_date).getHours() + 1) ?? [])), [data]);
