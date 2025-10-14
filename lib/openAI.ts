@@ -28,7 +28,6 @@ Use these top 5 skills consistently throughout the entire resume, especially in 
 
 2. Professional Summary
 Write a professional summary focused on:
-- My 10+ years of experience
 - Team collaboration, delivery excellence, adaptability
 - Match all focus areas directly to the provided job description
 Do not include personal identifiers or names.
