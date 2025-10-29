@@ -39,10 +39,10 @@ Organize them into the categories below.
 List the skills in the same order they appear in the job description.
 - Programming Languages (at least 10)
 - Frameworks & Libraries (at least 15)
-- Tools & Platforms (at least 25)
+- Tools & Platforms (at least 15)
 - Databases (at least 10)
 - DevOps & CI/CD (at least 10)
-- Other Skills (at least ${Math.floor(Math.random() * 20) + 5})
+- Other Skills (at least ${Math.floor(Math.random() * 10) + 5})
 
 4. Certifications
 List ${Math.floor(Math.random() * 3) + 3} technical certifications based on the job description.
