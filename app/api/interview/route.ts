@@ -11,7 +11,6 @@ export async function POST(request: Request) {
     await dbConnectMongoose();
 
     if (!interview._id) {
-      delete interview._id; // Remove _id if it's empty to avoid conflicts
       const newInterview = await new Interview(interview).save(); // Create new interview
       return Response.json(newInterview, { status: 201 });
     } else {
