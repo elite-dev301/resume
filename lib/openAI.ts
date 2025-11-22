@@ -30,8 +30,9 @@ Use these top 5 skills consistently throughout the entire resume, especially in 
 Write a professional summary focused on:
 - Team collaboration, delivery excellence, adaptability
 - Match all focus areas directly to the provided job description
-Do not include personal identifiers or names.
-Bold important keywords using <b> tags.
+- Don't include any experience or working period
+- Do not include personal identifiers or names.
+- Bold important keywords using <b> tags.
 
 3. Skills
 Generate over 100 total technical skills extracted ONLY from the job description.
