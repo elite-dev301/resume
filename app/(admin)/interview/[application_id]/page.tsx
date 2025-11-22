@@ -39,6 +39,8 @@ const ScheduleDialog: React.FC<{ open: boolean, setOpen: (open: boolean) => void
 
   const { isPending, mutateAsync } = useMutation<void, void, Interview>({
     mutationFn: async (newInterview) => {
+      const payload: Interview | { _id?: string } = { ...newInterview };
+      if (payload._id === '') delete payload._id;
       await fetch('/api/interview', { method: 'POST', body: JSON.stringify(newInterview) });
     },
     onSuccess: async () => {
