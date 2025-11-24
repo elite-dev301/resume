@@ -41,7 +41,7 @@ const ScheduleDialog: React.FC<{ open: boolean, setOpen: (open: boolean) => void
     mutationFn: async (newInterview) => {
       const payload: Interview | { _id?: string } = { ...newInterview };
       if (payload._id === '') delete payload._id;
-      await fetch('/api/interview', { method: 'POST', body: JSON.stringify(newInterview) });
+      await fetch('/api/interview', { method: 'POST', body: JSON.stringify(payload) });
     },
     onSuccess: async () => {
       setOpen(false);
