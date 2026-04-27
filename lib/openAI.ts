@@ -35,14 +35,14 @@ Write a professional summary focused on:
 - Bold important keywords using <b> tags.
 
 3. Skills
-Generate over 100 total technical skills extracted ONLY from the job description.
+Generate over 50 total technical skills extracted ONLY from the job description.
 Organize them into the categories below.
 List the skills in the same order they appear in the job description.
-- Programming Languages (at least 10)
-- Frameworks & Libraries (at least 15)
-- Tools & Platforms (at least 15)
-- Databases (at least 10)
-- DevOps & CI/CD (at least 10)
+- Programming Languages (at least 5)
+- Frameworks & Libraries (at least 10)
+- Tools & Platforms (at least 10)
+- Databases (at least 5)
+- DevOps & CI/CD (at least 5)
 - Other Skills (at least ${Math.floor(Math.random() * 10) + 5})
 
 4. Certifications
@@ -57,13 +57,13 @@ For each company I provide, format as below:
 Period [Start Date-End Date]
 Role [Role Title]
 Job Descriptions
-- Start with one sentence that accurately describes what I did at that job (based on my real history).
-- Then generate at least 20 bullet points using the following rules:
+- Start with one sentence that accurately describes what I did at that job (mainly based on my real history).
+- Then generate at least 10 bullet points using the following rules:
 Each bullet must be long and detailed (25-35+ words).
 Every single technical keyword (including programming languages, libraries, cloud services, DevOps tools, testing frameworks, infrastructure tools, databases, frontend/back-end tech, job-relevant methodologies, and APIs) must be wrapped in <b> tags — no exceptions.
 Each sentence must include at least 3+ bolded technical keywords.
-Reuse the top 5 most important job description skills in every sentence, where contextually appropriate.
 Sentences should use complex structure, like conditional logic, multiple technical actions, or architecture outcomes.
+While generating the job descriptions, please don't make them too tailored to the job description. Keep it general and focused on the skills and technologies I have used.
 
 6. Job Details
 Extract from the job description:
