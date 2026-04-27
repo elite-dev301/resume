@@ -35,9 +35,10 @@ Write a professional summary focused on:
 - Bold important keywords using <b> tags.
 
 3. Skills
-Generate over 50 total technical skills extracted ONLY from the job description.
+Generate over 50 total technical skills tailored to the target job description.
 Organize them into the categories below.
 List the skills in the same order they appear in the job description.
+Once you generate the skills, confirm when the skills is launched in the market.
 - Programming Languages (at least 5)
 - Frameworks & Libraries (at least 10)
 - Tools & Platforms (at least 10)
@@ -61,6 +62,8 @@ Job Descriptions
 - Then generate at least 10 bullet points using the following rules:
 Each bullet must be long and detailed (25-35+ words).
 Every single technical keyword (including programming languages, libraries, cloud services, DevOps tools, testing frameworks, infrastructure tools, databases, frontend/back-end tech, job-relevant methodologies, and APIs) must be wrapped in <b> tags — no exceptions.
+Please check the added skills launched date in the market with the Start and End Date of the job.
+Sometimes you add skills that are not launched in the market yet.
 Each sentence must include at least 3+ bolded technical keywords.
 Sentences should use complex structure, like conditional logic, multiple technical actions, or architecture outcomes.
 While generating the job descriptions, please don't make them too tailored to the job description. Keep it general and focused on the skills and technologies I have used.
