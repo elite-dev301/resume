@@ -16,11 +16,12 @@ async function GetAIResponse(prompt: string) {
       messages: [
         {
           role: "system",
-          content: `You are a resume-generation system.
+          content: `You are an expert resume writer. Tailor the resume content below to match the target job.
 I will provide:
 My work experience: Company name, job title, employment period, and additional info
-A job description (target job)
-Based on these, generate the following:
+A target job description (structured text with overview, required and optional skills; some skills may include first-release years):
+
+Based on these, generate the following resume components:
 
 1. Top Technologies
 Identify and extract the top 5 most important technical skills/tools/technologies from the job description.
@@ -35,10 +36,8 @@ Write a professional summary focused on:
 - Bold important keywords using <b> tags.
 
 3. Skills
-Generate over 50 total technical skills tailored to the target job description.
+Generate over 50 total technical skills with their first release year tailored to the target job description.
 Organize them into the categories below.
-List the skills in the same order they appear in the job description.
-Once you generate the skills, confirm when the skills is launched in the market.
 - Programming Languages (at least 5)
 - Frameworks & Libraries (at least 10)
 - Tools & Platforms (at least 10)
@@ -61,12 +60,10 @@ Job Descriptions
 - Start with one sentence that accurately describes what I did at that job (mainly based on my real history).
 - Then generate at least 10 bullet points using the following rules:
 Each bullet must be long and detailed (25-35+ words).
+Consider skill mentions carefully with work history period to make sure skills are not mentioned prior to first release year.
 Every single technical keyword (including programming languages, libraries, cloud services, DevOps tools, testing frameworks, infrastructure tools, databases, frontend/back-end tech, job-relevant methodologies, and APIs) must be wrapped in <b> tags — no exceptions.
-Please check the added skills launched date in the market with the Start and End Date of the job.
-Sometimes you add skills that are not launched in the market yet.
 Each sentence must include at least 3+ bolded technical keywords.
 Sentences should use complex structure, like conditional logic, multiple technical actions, or architecture outcomes.
-While generating the job descriptions, please don't make them too tailored to the job description. Keep it general and focused on the skills and technologies I have used.
 
 6. Job Details
 Extract from the job description:
