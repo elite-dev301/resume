@@ -36,17 +36,17 @@ Write a professional summary focused on:
 - Bold important keywords using <b> tags.
 
 3. Skills
-Generate over 50 total technical skills with their first release year tailored to the target job description.
+Generate over 50 total technical skills extracted ONLY from the target job description.
 Organize them into the categories below.
 - Programming Languages (at least 5)
 - Frameworks & Libraries (at least 10)
 - Tools & Platforms (at least 10)
 - Databases (at least 5)
 - DevOps & CI/CD (at least 5)
-- Other Skills (at least ${Math.floor(Math.random() * 10) + 5})
+- Other Skills (at least ${Math.floor(Math.random() * 5) + 5})
 
 4. Certifications
-List ${Math.floor(Math.random() * 3) + 3} technical certifications based on the job description.
+List ${Math.floor(Math.random() * 3) + 3} technical certifications based on the target job description.
 Only include vendor-specific or engineering-focused examples (e.g., AWS, Kubernetes, GCP, Microsoft).
 Exclude product, Scrum, or non-engineering certifications.
 
@@ -60,10 +60,11 @@ Job Descriptions
 - Start with one sentence that accurately describes what I did at that job (mainly based on my real history).
 - Then generate at least 10 bullet points using the following rules:
 Each bullet must be long and detailed (25-35+ words).
-Consider skill mentions carefully with work history period to make sure skills are not mentioned prior to first release year.
 Every single technical keyword (including programming languages, libraries, cloud services, DevOps tools, testing frameworks, infrastructure tools, databases, frontend/back-end tech, job-relevant methodologies, and APIs) must be wrapped in <b> tags — no exceptions.
 Each sentence must include at least 3+ bolded technical keywords.
+Reuse the top 5 most important target job description skills in every sentence, where contextually appropriate.
 Sentences should use complex structure, like conditional logic, multiple technical actions, or architecture outcomes.
+Consider skill mentions carefully with work history period to make sure skills are not mentioned prior to first release year.
 
 6. Job Details
 Extract from the job description:
