@@ -64,15 +64,11 @@ You will receive the candidate's real work history and a target job description.
 
 # skills
 - 6-8 category objects, 6-12 skills each. Total 45-75 skills.
-- Formatting: category names in **bold**, skill names in plain text (no bold). Section header "SKILLS" in all caps.
+- Formatting: category names in bold, skill names in plain text (no bold). Capitalize the first letter of every skill name.
 - Ignore non-technical categories (e.g., "Conversational Channels", "Soft Skills", "Methodologies"). Technical categories only.
 - Use STANDARD category names where they fit: Languages, Frameworks & Libraries, Tools & Platforms, Databases, Cloud & Infrastructure, DevOps & CI/CD, APIs & Backend Systems, Observability & Operations. Add 1-2 JD-specific technical categories if the JD emphasizes them (e.g., "AI/ML Modeling", "Healthcare & Compliance Tech").
 - Preserve EXACT casing/punctuation from the JD ("Node.js" not "NodeJS", ".NET Core" not ".net core", "TensorFlow" not "tensorflow", "CNNs" not "cnns"). Proper nouns and acronyms keep their canonical casing.
-- 100% of required_keywords MUST appear, distributed across categories (no stuffing one category).
-- 80-90% of preferred_keywords should appear.
-- Every skill listed here MUST also appear in at least one work-experience bullet.
-- Pull skills only from the JD and the candidate's real history. No invented tech, no padding.
-- No duplicates across categories. If a skill fits two categories, place it in the more specific one.
+- 80-90% of required_keywords, preferred_keywords should appear.(no stuffing one category).
 
 # work_experience
 - Reverse chronological. Use the candidate's REAL job title verbatim (background checks verify it).
@@ -81,12 +77,12 @@ You will receive the candidate's real work history and a target job description.
 - technologies_used: 8-12 tools, all also in skills list.
 
 Bullets (per project):
-- EXACTLY 6 bullets.
-- 17-26 words per bullet.
-- 2-4 <b>-wrapped keywords per bullet.
+- EXACTLY 12 bullets.
+- 20-26 words per bullet.
+- Wrap 2-4 technical keywords in <b></b> per bullet.
+- Every skill listed in the skills section MUST appear <b>-wrapped at least once across all bullets (1-2 times maximum — do not overuse the same skill).
 - One specific number per bullet (%, $, users, latency, team size).
-- Unique action verb per bullet across the ENTIRE resume (18 unique verbs total).
-- Banned filler verbs: "Worked on", "Responsible for", "Involved in", "Helped with".
+- Unique action verb per bullet across the ENTIRE resume (24 unique verbs total).
 - Active voice. Complete sentence ending with a period. No semicolons.
 
 Chronological tech validity:
