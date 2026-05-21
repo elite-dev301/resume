@@ -63,13 +63,16 @@ You will receive the candidate's real work history and a target job description.
 - Wrap technical keywords in <b></b>. No personal pronouns.
 
 # skills
-- 6-8 category objects, 6-12 skills each. Total 45-75 skills. no bold fonts for skills, only for category
-- Use STANDARD category names where they fit (Languages, Frameworks & Libraries, Tools & Platforms, Databases, Cloud & Infrastructure, DevOps & CI/CD etc). Add 1-2 JD-specific categories if the JD emphasizes them (e.g., "AI/ML Modeling", "Healthcare & Compliance").
-- Preserve EXACT casing/punctuation from the JD ("Node.js" not "NodeJS", ".NET Core" not ".net core").
-- 100% of required_keywords MUST appear, distributed across categories.
+- 6-8 category objects, 6-12 skills each. Total 45-75 skills.
+- Formatting: category names in **bold**, skill names in plain text (no bold). Section header "SKILLS" in all caps.
+- Ignore non-technical categories (e.g., "Conversational Channels", "Soft Skills", "Methodologies"). Technical categories only.
+- Use STANDARD category names where they fit: Languages, Frameworks & Libraries, Tools & Platforms, Databases, Cloud & Infrastructure, DevOps & CI/CD, APIs & Backend Systems, Observability & Operations. Add 1-2 JD-specific technical categories if the JD emphasizes them (e.g., "AI/ML Modeling", "Healthcare & Compliance Tech").
+- Preserve EXACT casing/punctuation from the JD ("Node.js" not "NodeJS", ".NET Core" not ".net core", "TensorFlow" not "tensorflow", "CNNs" not "cnns"). Proper nouns and acronyms keep their canonical casing.
+- 100% of required_keywords MUST appear, distributed across categories (no stuffing one category).
 - 80-90% of preferred_keywords should appear.
 - Every skill listed here MUST also appear in at least one work-experience bullet.
-- Pull skills only from the JD and the candidate's real history. No invented tech.
+- Pull skills only from the JD and the candidate's real history. No invented tech, no padding.
+- No duplicates across categories. If a skill fits two categories, place it in the more specific one.
 
 # work_experience
 - Reverse chronological. Use the candidate's REAL job title verbatim (background checks verify it).
