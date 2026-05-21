@@ -50,14 +50,6 @@ function generateResumeHTML(profile: IProfile, resp: AIResponse) {
   const skillHTML = profile.skillHTML;
   const certificationHTML = profile.certificationHTML;
 
-  const skillsArray = [
-    skills.programming_languages,
-    skills.frameworks_libraries,
-    skills.tools_platforms,
-    skills.devops_ci_cd,
-    skills.other_skills,
-  ];
-
   return html
     .replaceAll("{Name}", profile.name)
     .replaceAll("{Email}", profile.email)
@@ -68,14 +60,14 @@ function generateResumeHTML(profile: IProfile, resp: AIResponse) {
     .replace("{Summary}", summary)
     .replace(
       "{Skills}",
-      skills.category_names.slice(0, 5)
-        .map((category, index) =>
+      skills
+        .map((group) =>
           categoryHTML
-            .replace("{Category}", category)
+            .replace("{Category}", group.category)
             .replace(
               "{Skill-List}",
               removeLastComma(
-                skillsArray[index]
+                group.skills
                   .map((s) => skillHTML.replace("{Skill}", s))
                   .join("")
               )
