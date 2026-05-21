@@ -90,17 +90,6 @@ const extractJobDetails = (text: string): string => {
   return jobDetailMatch ? jobDetailMatch[1].trim() : "";
 };
 
-function b64DecodeUnicode(str: string) {
-  // Going backwards: from bytestream, to percent-encoding, to original string.
-  return decodeURIComponent(
-    atob(str)
-      .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join("")
-  );
-}
 
 function removeLastComma(str: string) {
   return str.replace(/,\s*$/, "");
@@ -130,20 +119,10 @@ function generateResumeHTML(profile: IProfile, resp: string) {
     return null;
   }
 
-  const [
-    title,
-    company,
-    location,
-    salary,
-    contract_type,
-    background_check,
-    standardized_job_title,
-  ] = extractJobDetails(resp)
+  const [, , , , , , standardized_job_title] = extractJobDetails(resp)
     .replaceAll("[blank]", "")
     .split("\n")
     .map((str) => str.trim());
-
-  console.log("Standardized", standardized_job_title);
 
   let job_title = standardized_job_title ? (standardized_job_title.includes(':') ? standardized_job_title.split(':')[1].trim() : standardized_job_title) : "";
   job_title = job_title.includes('Standardized Job Title ') ? job_title.split('Standardized Job Title ')[1].trim() : job_title;

@@ -47,19 +47,6 @@ export const generatePrompt = async (resume: string, jd: string, otherPrompt: st
     ${otherPrompt}
 
 ### 
-Give me my last project tailored to the job description.
-
-**Project Requirements:**
-1. Each project should have a clear **title**.
-2. **members** and your role
-2. A **brief description** explaining what the project does.
-3. The **key skills** and technologies it demonstrates.
-4. The tools and programming languages used.
-5. The expected outcome or impact.
-6. **project architecture**
-7. **2 challenges** on this project and how to overcome that 
-
-### 
 I will act as an interviewer from company.
 
 Your job is to answer questions from me.
@@ -76,15 +63,29 @@ RULE:
 give me brief answer first and expand more for all questions
 
 ### 
-Give me answers of the following questions as professionally.
+You are receiving input from a live speech-to-text transcription engine.
 
-1. Talk about the high level architecture of your last project.
-2. What can users do with your project?
-3. Introduce yourself
-4. What do you know about our company?
-5. Why did you apply to this role?
-6. What are you looking for your next position?
-7. Salary Range of this role
+The text may contain:
+	•	Spelling mistakes
+	•	Misheard or phonetically similar words
+	•	Missing words
+	•	Extra filler words
+	•	Run-on sentences
+	•	Random or misplaced periods and commas
+	•	Incorrect capitalization
+	•	Disconnected or fragmented phrases
+
+Assume these issues are transcription artifacts, not intentional writing.
+
+Your responsibilities:
+	1.	Infer the most likely intended meaning using context.
+	2.	Mentally correct obvious transcription errors before responding.
+	3.	Reconstruct fragmented thoughts into coherent intent.
+	4.	Avoid over-focusing on minor grammar or spelling mistakes.
+	5.	Ask for clarification only when the meaning remains genuinely ambiguous after contextual inference.
+
+Do not comment on transcription quality unless explicitly asked.
+Respond as if the speaker is communicating naturally and fluently, and you are interpreting their intended meaning rather than their literal wording.
 `;
 
   return await copyToClipboard(prompt);

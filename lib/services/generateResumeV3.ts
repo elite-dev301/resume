@@ -129,15 +129,12 @@ async function generateResumeV3(profile: IProfile, jd: string, url: string) {
   
   if (resp === null) return null;
   
-  console.log("Got resp");
   const html = await generateResumeHTML(profile, resp);
 
   
   if (html === null) {
     return null;
   }
-  
-  console.log("Generated html");
 
   const pdfBuffer = await convertHTMLtoPDF(html);
   const job = await getJobDetails(jd, url, resp);
