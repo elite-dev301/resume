@@ -1,33 +1,61 @@
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer';
+
+let browserInstance: Browser | null = null;
+
+const getBrowser = async (): Promise<Browser> => {
+  if (!browserInstance) {
+    browserInstance = await puppeteer.launch({
+      headless: true,
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--hide-scrollbars',
+        '--disable-web-security',
+        '--font-render-hinting=none',
+        '--disable-font-subpixel-positioning', // Add this
+        '--disable-lcd-text',                  // Add this
+        '--force-color-profile=srgb',         // Add this
+        '--single-process',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding'
+      ]
+    });
+
+    console.log("Created new browser");
+  }
+  return browserInstance;
+};
 
 export const convertHTMLtoPDF = async (html: string) => {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-      '--hide-scrollbars',
-      '--disable-web-security',
-      '--font-render-hinting=none'
-    ]
-  });
+  const browser = await getBrowser();
   const page = await browser.newPage();
 
-  await page.setViewport({...page.viewport()!, deviceScaleFactor: 2});
+  try {
 
-  await page.setContent(html);
+    await page.setContent(html);
 
-  // Generate PDF from the page content
-  const pdfBuffer = await page.pdf({
-    format: 'A4',
-    printBackground: true,
-    margin: { top: "0.5in", bottom: "0.5in" },
-    scale: 1.0
-  });
+    // Wait for fonts to load
+    await page.evaluateHandle('document.fonts.ready');
 
-  await browser.close();
+    // Generate PDF from the page content
+    const pdfBuffer = await page.pdf({
+      format: 'A4',
+      printBackground: true,
+      margin: { top: "0.5in", bottom: "0.5in" },
+      preferCSSPageSize: true
+    });
 
-  return pdfBuffer;
+    return pdfBuffer;
+  } finally {
+    await page.close();
+  }
 }
+
+process.on('SIGTERM', async () => {
+  if (browserInstance) {
+    await browserInstance.close();
+  }
+});

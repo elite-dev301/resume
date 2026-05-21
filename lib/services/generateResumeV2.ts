@@ -16,6 +16,83 @@ ${jd}
   return prompt;
 }
 
+<<<<<<< HEAD
+=======
+// Function to extract the summary
+const extractSummary = (text: string): string | null => {
+  const summaryMatch = text.match(/### Professional Summary([\s\S]*?)\n###/);
+  return summaryMatch ? summaryMatch[1].trim() : null;
+};
+
+// Function to extract work experience details
+const extractWorkExperience = (text: string): WorkExperience[] => {
+  const experienceMatch = text.match(/### Work Experience([\s\S]*?)\n###/);
+
+  if (!experienceMatch) return [];
+
+  const experience = experienceMatch[1].trim();
+
+  const workExpMatches = [
+    ...Array.from(
+      experience.matchAll(
+        /\*\*([^\*]+)\*\*[\s]*\n\*\*Period\*\*([^\*]+)\n\*\*Role\*\*([^\*]+)\n\*\*Job Descriptions\*\*[\s]*\n([^\*]+)(?=\*\*|$)/g
+      )
+    ),
+  ];
+
+  return workExpMatches.map((match) => ({
+    company: match[1].trim(),
+    period: match[2].trim(),
+    role: match[3].trim(),
+    jobDescriptions: match[4]
+      .trim()
+      .split("- ")
+      .map((desc) => desc.trim())
+      .filter((desc) => desc),
+  }));
+};
+
+// Function to extract categorized skills
+const extractSkills = (text: string): Skills[] => {
+  const skillsMatch = text.match(/### Skills([\s\S]*?)\n###/);
+
+  if (!skillsMatch) return [];
+
+  const skill = skillsMatch[1].trim();
+
+  const skillMatches = [
+    ...Array.from(skill.matchAll(/\*\*([^\*]+)\*\*([^\*]+)/g)),
+  ];
+  return skillMatches.map((match) => ({
+    category: match[1].trim(),
+    skills: match[2]
+      .split(",")
+      .map((skill) => skill.trim())
+      .filter((skill) => skill),
+  }));
+};
+
+const extractCertifications = (text: string): string[] => {
+  const certificationsMatch = text.match(/### Certifications([\s\S]*?)\n###/);
+
+  if (!certificationsMatch) return [];
+
+  const certifications = certificationsMatch[1].trim();
+
+  return certifications
+    .split(",")
+    .map((certification) => certification.trim())
+    .filter((certification) => certification);
+};
+
+// Function to extract the job details
+const extractJobDetails = (text: string): string => {
+  const jobDetailMatch = text.match(/### Job Details([\s\S]*?)$/);
+  return jobDetailMatch ? jobDetailMatch[1].trim() : "";
+};
+
+
+>>>>>>> 73981892a5ff763e7527f30c3268d3e7f6475978
 function removeLastComma(str: string) {
   return str.replace(/,\s*$/, "");
 }
