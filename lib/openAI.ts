@@ -75,8 +75,15 @@ From the JD, identify:
 # STEP 3 — CONTENT RULES
 
 ## professional_summary
-- 12–14 concise tailored lines (use \\n between lines)
-- Lead with years matching JD seniority; wrap keywords in <b></b>; no personal pronouns
+- 3-5 sentences total (~60-90 words, 4-6 lines maximum).
+- Use plain prose with sentences separated by periods (NOT \n line breaks).
+- Lead with the EXACT years_of_experience value provided in the user prompt — do not invent or estimate.
+- Mention 2-3 high-frequency required keywords from the JD inventory.
+- Mention domain experience if relevant (Healthcare, Fintech, Cloud, etc.).
+- Close with one line on leadership/team scale/mentoring.
+- Wrap every meaningful technical keyword in <b></b>.
+- NO personal pronouns, NO filler phrases 
+
 
 ## skills (dynamic KEY SKILLS — tailored to THIS job description)
 Return an array of 5–7 category objects. Each object:
@@ -90,26 +97,63 @@ Rules:
 - Every skill in bullets should also appear somewhere in this skills array
 
 ## work_experience
-For EACH company (reverse chronological):
-- Align most recent role title with JD where truthful
-- One flagship project per company; MINIMUM 14 bullets in responsibility
-- Each bullet: unique action verb, 20+ words, 2–4 <b> keywords, one metric, active voice, ends with period
-- technologies_used: 8–12 tools also present in skills
+
+- Reverse chronological. Use candidate's REAL job title verbatim (background checks verify it).
+- ONE flagship project per company.
+- description: 2-3 sentences (40-70 words) — what it did, who used it, scale.
+- technologies_used: 8-12 tools, all also in skills list.
+
+# Bullets (per project)
+- EXACTLY 6 bullets.
+- 17-26 words per bullet.
+- 2-4 <b>-wrapped keywords per bullet (never more than 4).
+- One specific number per bullet (%, $, users, latency, team size).
+- Unique action verb per bullet across the ENTIRE resume (18 unique verbs total).
+- Banned verbs: "Worked on", "Responsible for", "Involved in", "Helped with", "Participated in".
+- Active voice. Ends with a period. No semicolons.
+- Structure: Action → Tech → Outcome.
+
+# Chronological tech validity
+- Tech's release year must be ≤ job's start year.
+- No .NET 8 (2023) at a 2021 job. No React 18 (2022) at a 2020 job. No Kubernetes (2014) at a 2012 job.
 
 ## certifications
-3–5 vendor-specific certs relevant to the JD. No Scrum/PMP/ITIL.
+3-5 REAL, vendor-issued technical certs relevant to JD's primary tech stack.
+- Format: "[Issuer] [Cert Name] ([Code])" — e.g., "Microsoft Certified: Azure Developer Associate (AZ-204)"
+- Use only certs that actually exist. Reject invented certs (e.g., no "AWS Certified .NET 8 Specialist").
+- Years: 2020 onwards, ≤ current year. Distribute years (not all in same year).
+- Allowed issuers: AWS, Microsoft, Google Cloud, HashiCorp, Kubernetes (CNCF: CKA/CKAD/CKS), Red Hat, Cisco, Oracle, Databricks.
+- BANNED: Scrum (CSM/PSM), PMP, ITIL, Six Sigma, Product Owner, vendor-neutral "general IT" certs.
+- If JD has no clear cert match, output 3 (not 5). Quality over count.
 
 ## job_details
 Extract from JD only — never invent.
 
-## ats_coverage
-Self-verify: required_matched, required_missed (must be empty for ATS-100), preferred_matched, must_match_phrases_used, estimated_ats_score (0–100).
-If score < 95, revise before returning.
+# ats_coverage (self-check)
+After writing the resume, fill these by checking your output against the JD inventory:
+- required_matched: required_keywords that appear anywhere in the resume.
+- required_missed: required_keywords that don't appear (target: empty).
+- preferred_matched: preferred_keywords used (target: 75-90%).
+- must_match_phrases_used: phrases from must_match_phrases that appear verbatim in bullets (target: 100%).
+- estimated_ats_score: 0-100 integer = round(
+    50 * (required_matched / total_required)
+  + 30 * (must_match_phrases_used / total_must_match)
+  + 20 * (preferred_matched / total_preferred)
+  )
+Target 92-98. Below 90 = under-tailored, may be auto-rejected by modern ATS.
+Return your honest score; do not self-revise.
 
 # OUTPUT RULES
-- Strictly valid JSON matching the schema.
-- HTML: only <b></b> tags. No markdown, hyperlinks, or bullet characters in strings.
-- Empty fields: "" or [], never null.`;
+
+- Strictly valid JSON matching the schema. No trailing commas, no comments.
+- HTML inside string fields: ONLY <b>...</b> tags. No <strong>, <em>, <i>, <a>, <span>, <br>.
+- No markdown syntax anywhere in strings: no **, __, ##, backticks, [text](url), or - leading dashes.
+- No bullet characters in strings: no •, ▸, ►, –leading, *leading.
+- Use only straight ASCII quotes: " and '. No curly quotes " " ' '.
+- En-dash – is allowed only in date ranges ("Mar 2021 – Present"). Use hyphen - elsewhere.
+- No non-breaking spaces, no zero-width characters, no trailing whitespace.
+- Empty fields: "" or [], never null or undefined.
+- All bullet array entries are complete sentences ending with a period.`
 
 export async function GetAIStructuredResponse(prompt: string): Promise<AIResponse> {
   const response = await openai.responses.create({
