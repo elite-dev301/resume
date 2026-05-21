@@ -1,6 +1,5 @@
-import { WorkExperience, Skills } from "@/types/resume";
 import { IProfile } from "../models/Profile";
-import GetAIResponse from "../openAI";
+import { AIResponse, GetAIStructuredResponse } from "../openAI";
 import { IJob } from "../models/Job";
 import { convertHTMLtoPDF } from "./convertHTMLtoPDF";
 
@@ -17,6 +16,8 @@ ${jd}
   return prompt;
 }
 
+<<<<<<< HEAD
+=======
 // Function to extract the summary
 const extractSummary = (text: string): string | null => {
   const summaryMatch = text.match(/### Professional Summary([\s\S]*?)\n###/);
@@ -91,12 +92,13 @@ const extractJobDetails = (text: string): string => {
 };
 
 
+>>>>>>> 73981892a5ff763e7527f30c3268d3e7f6475978
 function removeLastComma(str: string) {
   return str.replace(/,\s*$/, "");
 }
 
 async function getAIResponse(profile: IProfile, jd: string) {
-  const resp = await GetAIResponse(getPrompt(profile, jd));
+  const resp = await GetAIStructuredResponse(getPrompt(profile, jd));
 
   if (resp === null) {
     console.log("AI RESP is NULL");
@@ -106,32 +108,32 @@ async function getAIResponse(profile: IProfile, jd: string) {
   return resp;
 }
 
-function generateResumeHTML(profile: IProfile, resp: string) {
+function generateResumeHTML(profile: IProfile, resp: AIResponse) {
   const { summary, experience, skills, certifications } = {
-    summary: extractSummary(resp),
-    experience: extractWorkExperience(resp),
-    skills: extractSkills(resp),
-    certifications: extractCertifications(resp),
+    summary: resp.professional_summary,
+    experience: resp.work_experience,
+    skills: resp.skills,
+    certifications: resp.certifications,
   };
 
-  if (summary === null || experience.length === 0 || skills.length === 0) {
-    console.log(summary, experience.length, skills.length, resp);
+  if (!summary || experience.length === 0) {
+    console.log(summary, experience.length, resp);
     return null;
   }
-
-  const [, , , , , , standardized_job_title] = extractJobDetails(resp)
-    .replaceAll("[blank]", "")
-    .split("\n")
-    .map((str) => str.trim());
-
-  let job_title = standardized_job_title ? (standardized_job_title.includes(':') ? standardized_job_title.split(':')[1].trim() : standardized_job_title) : "";
-  job_title = job_title.includes('Standardized Job Title ') ? job_title.split('Standardized Job Title ')[1].trim() : job_title;
 
   const html = profile.mainHTML;
   const experienceHTML = profile.experienceHTML;
   const categoryHTML = profile.categoryHTML;
   const skillHTML = profile.skillHTML;
   const certificationHTML = profile.certificationHTML;
+
+  const skillsArray = [
+    skills.programming_languages,
+    skills.frameworks_libraries,
+    skills.tools_platforms,
+    skills.devops_ci_cd,
+    skills.other_skills,
+  ];
 
   return html
     .replaceAll("{Name}", profile.name)
@@ -143,14 +145,14 @@ function generateResumeHTML(profile: IProfile, resp: string) {
     .replace("{Summary}", summary)
     .replace(
       "{Skills}",
-      skills
-        .map((skill) =>
+      skills.category_names.slice(0, 5)
+        .map((category, index) =>
           categoryHTML
-            .replace("{Category}", skill.category)
+            .replace("{Category}", category)
             .replace(
               "{Skill-List}",
               removeLastComma(
-                skill.skills
+                skillsArray[index]
                   .map((s) => skillHTML.replace("{Skill}", s))
                   .join("")
               )
@@ -171,32 +173,29 @@ function generateResumeHTML(profile: IProfile, resp: string) {
       experience
         .map((exp, idx) =>
           experienceHTML
-            .replace("{Company}", exp.company)
-            .replace("{Role}", (idx === 0 && job_title !== "") ? job_title : exp.role)
+            .replace("{Company}", exp.company_name)
+            .replace("{Role}", idx === 0 ? resp.job_details.standardized_job_title : exp.role)
             .replace("{Period}", exp.period)
             .replace(
               "{Job-Descriptions}",
-              exp.jobDescriptions.map((jd) => `<li>${jd}</li>`).join("")
+              exp.projects
+                .flatMap((project) => project.responsibility)
+                .map((jd) => `<li>${jd}</li>`)
+                .join("")
             )
         )
         .join("")
     );
 }
 
-async function getJobDetails(jd: string, url: string, resp: string) {
-  const [title, company, location, salary, contract_type, background_check] =
-    extractJobDetails(resp)
-      .replaceAll("[blank]", "")
-      .split("\n")
-      .map((str) => str.trim());
-
+async function getJobDetails(jd: string, url: string, resp: AIResponse) {
   return {
-    title,
-    company,
-    location,
-    salary,
-    contract_type,
-    background_check,
+    title: resp.job_details.job_title,
+    company: resp.job_details.company_name,
+    location: resp.job_details.remote,
+    salary: resp.job_details.salary,
+    contract_type: resp.job_details.contract_type,
+    background_check: resp.job_details.background_check.join(", "),
     link: url,
     content: jd,
     active: true,
@@ -209,7 +208,7 @@ async function generateResumeV2(profile: IProfile, jd: string, url: string) {
 
   if (resp === null) return null;
 
-  const html = await generateResumeHTML(profile, resp);
+  const html = generateResumeHTML(profile, resp);
 
   if (html === null) {
     return null;

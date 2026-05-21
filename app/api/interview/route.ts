@@ -1,24 +1,26 @@
 import { getInterviewAggregation } from "@/lib/aggregations/interviewAggregation";
-import Interview, { IInterview } from "@/lib/models/Interview";
+import Interview from "@/lib/models/Interview";
 import dbConnectMongoose from "@/lib/mongodb";
+import { Interview as InterviewPayload } from "@/types/interview";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: Request) {
 
   try {
-    const interview: IInterview = await request.json();
+    const interview: InterviewPayload = await request.json();
 
     await dbConnectMongoose();
 
     if (!interview._id) {
-      const newInterview = await new Interview(interview).save(); // Create new interview
+      const { _id, member_name, step, ...interviewData } = interview;
+      const newInterview = await new Interview(interviewData).save();
       return Response.json(newInterview, { status: 201 });
     } else {
-      // Update existing interview if _id is provided
+      const { _id, member_name, step, ...interviewData } = interview;
       const updatedInterview = await Interview.findByIdAndUpdate(
-        interview._id,
-        interview,
-        { new: true } // Return the updated interview
+        _id,
+        interviewData,
+        { new: true }
       );
 
       if (!updatedInterview) {
