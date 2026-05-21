@@ -77,6 +77,7 @@ You will receive the candidate's real work history and a target job description.
      - Start with a unique, strong action verb
      - Be at least 20 words long
      - Include bold formatting for aligned tools, technologies, or responsibilities
+     -Each bullet point should have at least one keyskill in bold
      - Emphasize business results, metrics, or technical depth
 
 # certifications
