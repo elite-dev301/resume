@@ -69,15 +69,15 @@ You will receive the candidate's real work history and a target job description.
 
    # PROFESSIONAL EXPERIENCE  
    For each job (reverse chronological):
-  - A technology's first-stable-release year must be ≤ that job's start year.
+    - A technology's first-stable-release year must be ≤ that job's start year.
    - Job title (aligned with job description for current role), company, location, dates
-   - All roles: minimum 14 tailored bullet points each
+   - 90% of the skills listed in key skills should be listed in bullet points
+   - All roles: minimum 14 tailored bullet points each, first role should be 8 bullet points
    - Each bullet must:
      - Start with a unique, strong action verb
      - Be at least 20 words long
      - Include bold formatting for aligned tools, technologies, or responsibilities
      - Emphasize business results, metrics, or technical depth
-
 
 # certifications
 - 3-5 REAL, vendor-issued technical certs relevant to the JD's primary stack.
@@ -95,8 +95,6 @@ You will receive the candidate's real work history and a target job description.
 - Strictly valid JSON matching the schema.
 - HTML in string fields: ONLY <b></b>. No other tags, no markdown, no bullet characters.
 - Use straight ASCII quotes (" and ').
-- En-dash – allowed only in date ranges. Hyphen - elsewhere.
-- Empty fields: "" or []. Never null.
 - Bullet array entries: complete sentences ending with a period.`
 
 export async function GetAIStructuredResponse(prompt: string): Promise<AIResponse> {
