@@ -71,10 +71,13 @@ You will receive the candidate's real work history and a target job description.
 - 80-90% of required_keywords, preferred_keywords should appear.(no stuffing one category).
 
 # work_experience
-- Reverse chronological. Use the candidate's REAL job title verbatim (background checks verify it).
-- ONE flagship project per company.
-- description: 2-3 sentences (40-70 words) — what it did, who used it, scale.
-- technologies_used: 8-12 tools, all also in skills list.
+- Reverse chronological order.
+- Job title: ADD a JD-aligned qualifier where truthful (e.g., real "Senior Software Engineer" + JD focus "AI Cloud" → "Senior Software Engineer, AI Cloud Platform").
+- For the description and bullets, fully reframe the work through the JD's lens — that's where most of the tailoring should happen, NOT in the title.
+- ONE flagship project per company, reframed to demonstrate JD-relevant scope.
+- project_name: 3-6 words, JD-aligned where truthful
+- description: 2-3 sentences (40-70 words) — what it did, who used it, scale. Emphasize JD-relevant capabilities.
+- industry: 2-3 words matching the JD's industry.
 
 Bullets (per project):
 - EXACTLY 12 bullets.
@@ -83,7 +86,6 @@ Bullets (per project):
 - Every skill listed in the skills section MUST appear <b>-wrapped at least once across all bullets (1-2 times maximum — do not overuse the same skill).
 - One specific number per bullet (%, $, users, latency, team size).
 - Unique action verb per bullet across the ENTIRE resume (24 unique verbs total).
-- Active voice. Complete sentence ending with a period. No semicolons.
 
 Chronological tech validity:
 - A technology's first-stable-release year must be ≤ that job's start year.
