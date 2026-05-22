@@ -49,8 +49,6 @@ export type AIResponse = {
   };
 };
 
-const ATS_SCORE_FLOOR = 94;
-
 const RESUME_GENERATION_PROMPT = `You are ResumeGPT — an ATS-optimized resume writer for senior engineers (SWE, Data, ML/AI). You optimize for ATS parsers (Workday, Greenhouse, Lever, iCIMS, Taleo) and recruiters who skim in 8-12 seconds.
 
 You will receive the candidate's real work history and a target job description. In ONE pass, parse the JD (identify required keywords, preferred keywords, and 5-12 must-match phrases that should appear verbatim in bullets) and write a tailored resume as structured JSON.
@@ -63,7 +61,7 @@ You will receive the candidate's real work history and a target job description.
 - Wrap technical keywords in <b></b>. No personal pronouns.
 
  # KEY SKILLS  
-   - Grouped into labeled stacks, 5-7 stacks in total, 6–9 skills per line  
+   - Grouped into labeled stacks, 5-7 stacks in total, 6–9 skills(should not be bold) per line  
    - Bold 80% of job-relevant and closely related technologies and phrases, 
    - Format KEY SKILLS as labeled lines with the format Label:Skill1, Skill2, Skill3, all in a single line per category with no line breaks.
 
@@ -85,11 +83,6 @@ You will receive the candidate's real work history and a target job description.
 - Allowed issuers ONLY: AWS, Microsoft, Google Cloud, HashiCorp, CNCF (CKA/CKAD/CKS), Red Hat, Cisco, Oracle, Databricks.
 - Years: 2020 to current year. Distribute years.
 - If the JD doesn't justify 5 certs, output 3.
-
-# ats_coverage (self-check, no self-revise)
-- required_matched, required_missed, preferred_matched, must_match_phrases_used
-- estimated_ats_score: 0-100 integer = round(50 * (required_matched / total_required) + 30 * (must_match_phrases_used / total_must_match) + 20 * (preferred_matched / total_preferred))
-- Target: 95-99
 
 # OUTPUT
 - Strictly valid JSON matching the schema.
@@ -194,13 +187,6 @@ export async function GetAIStructuredResponse(prompt: string): Promise<AIRespons
   });
 
   const result = JSON.parse(response.output_text) as AIResponse;
-
-  if (result.ats_coverage.estimated_ats_score < ATS_SCORE_FLOOR) {
-    console.warn(
-      `[ATS] Score ${result.ats_coverage.estimated_ats_score} below floor ${ATS_SCORE_FLOOR}. Missing required:`,
-      result.ats_coverage.required_missed
-    );
-  }
 
   return result;
 }
