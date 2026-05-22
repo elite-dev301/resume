@@ -191,7 +191,6 @@ export async function GetAIStructuredResponse(prompt: string): Promise<AIRespons
       }
     },
     temperature: 0.35,
-    max_output_tokens: 12000
   });
 
   const result = JSON.parse(response.output_text) as AIResponse;
