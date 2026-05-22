@@ -69,13 +69,12 @@ You will receive the candidate's real work history and a target job description.
 
   # PROFESSIONAL EXPERIENCE  
   For each job (reverse chronological):
+  - Job title (aligned with job description for current role), company, location, dates
   - All roles: minimum 14 tailored bullet points each
   - A technology's first-stable-release year must be ≤ that job's start year.
-  - Job title (aligned with job description for current role), company, location, dates
-  - 90% of the skills listed in key skills should be listed in bullet points
   - Each bullet must:
     - Start with a unique, strong action verb
-    - Be at least 18 words long
+    - Be at least 20 words long
     - Include bold formatting for aligned tools, technologies, or responsibilities
     -Each bullet point should have at least one keyskill in bold
     - Emphasize business results, metrics, or technical depth
