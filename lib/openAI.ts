@@ -67,7 +67,7 @@ You will receive the candidate's real work history and a target job description.
 
    # PROFESSIONAL EXPERIENCE  
    For each job (reverse chronological):
-    - A technology's first-stable-release year must be ≤ that job's start year.
+    - A technology's first-stable-release year must be < that job's end year.
    - Job title (aligned with job description for current role), company, location, dates
    - All roles: minimum 14 tailored bullet points each
    - all key skills should be listed on bullet points
