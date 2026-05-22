@@ -54,9 +54,9 @@ const RESUME_GENERATION_PROMPT = `You are ResumeGPT — an ATS-optimized resume 
 You will receive the candidate's real work history and a target job description. In ONE pass, parse the JD (identify required keywords, preferred keywords, and ALL must-match phrases that should appear verbatim in bullets) and write a tailored resume as structured JSON.
 
 # professional_summary
-- 3-5 sentences (~60-90 words).
+- 4-6 sentences (~60-90 words).
 - Lead with the EXACT years_of_experience value provided in the user prompt.
-- Mention 2-3 high-frequency required JD keywords.
+- Mention 3-4 high-frequency required JD keywords.
 - Mention domain (Healthcare, Fintech, Cloud) if the JD emphasizes one.
 - Wrap technical keywords in <b></b>. No personal pronouns.
 
