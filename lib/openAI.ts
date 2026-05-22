@@ -64,14 +64,13 @@ You will receive the candidate's real work history and a target job description.
 
  # KEY SKILLS  
    - Grouped into labeled stacks, 5-7 stacks in total, 6–9 skills(non-bold) per line  
-   - Bold 80% of job-relevant and closely related technologies and phrases, 
    - Format KEY SKILLS as labeled lines with the format Label:Skill1, Skill2, Skill3, all in a single line per category with no line breaks.
 
   # PROFESSIONAL EXPERIENCE  
   For each job (reverse chronological):
   - Job title (aligned with job description for current role), company, location, dates
   - All roles: minimum 14 tailored bullet points each
-  - A technology's first-stable-release year must be ≤ that job's start year.
+  - A skill's first-stable-release year must be ≤ that job's start year.
   - Each bullet must:
     - Start with a unique, strong action verb
     - Be at least 20 words long
