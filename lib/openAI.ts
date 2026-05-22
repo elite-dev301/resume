@@ -63,20 +63,21 @@ You will receive the candidate's real work history and a target job description.
 - Wrap technical keywords in <b></b>. No personal pronouns.
 
  # KEY SKILLS  
-   - Grouped into labeled stacks, 5-7 stacks in total, 6–9 skills(non-bold) per line  
+   - Grouped into labeled stacks, 5-7 stacks in total, 6–9 skills per line  
+   - Bold 80% of job-relevant and closely related technologies and phrases, 
    - Format KEY SKILLS as labeled lines with the format Label:Skill1, Skill2, Skill3, all in a single line per category with no line breaks.
 
-  # PROFESSIONAL EXPERIENCE  
-  For each job (reverse chronological):
-  - Job title (aligned with job description for current role), company, location, dates
-  - All roles: minimum 14 tailored bullet points each
-  - A skill's first-stable-release year must be ≤ that job's start year.
-  - Each bullet must:
-    - Start with a unique, strong action verb
-    - Be at least 20 words long
-    - Include bold formatting for aligned tools, technologies, or responsibilities
-    -Each bullet point should have at least one keyskill in bold
-    - Emphasize business results, metrics, or technical depth
+   # PROFESSIONAL EXPERIENCE  
+   For each job (reverse chronological):
+    - A technology's first-stable-release year must be ≤ that job's start year.
+   - Job title (aligned with job description for current role), company, location, dates
+   - All roles: minimum 14 tailored bullet points each
+   - Each bullet must:
+     - Start with a unique, strong action verb
+     - Be at least 20 words long
+     - Include bold formatting for aligned tools, technologies, or responsibilities
+     - Emphasize business results, metrics, or technical depth
+
 
 # certifications
 - 3-5 REAL, vendor-issued technical certs relevant to the JD's primary stack.
@@ -85,10 +86,17 @@ You will receive the candidate's real work history and a target job description.
 - Years: 2020 to current year. Distribute years.
 - If the JD doesn't justify 5 certs, output 3.
 
+# ats_coverage (self-check, no self-revise)
+- required_matched, required_missed, preferred_matched, must_match_phrases_used
+- estimated_ats_score: 0-100 integer = round(50 * (required_matched / total_required) + 30 * (must_match_phrases_used / total_must_match) + 20 * (preferred_matched / total_preferred))
+- Target: 95-99
+
 # OUTPUT
 - Strictly valid JSON matching the schema.
 - HTML in string fields: ONLY <b></b>. No other tags, no markdown, no bullet characters.
 - Use straight ASCII quotes (" and ').
+- En-dash – allowed only in date ranges. Hyphen - elsewhere.
+- Empty fields: "" or []. Never null.
 - Bullet array entries: complete sentences ending with a period.`
 
 export async function GetAIStructuredResponse(prompt: string): Promise<AIResponse> {
