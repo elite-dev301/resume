@@ -85,11 +85,6 @@ You will receive the candidate's real work history and a target job description.
 - Years: 2020 to current year. Distribute years.
 - If the JD doesn't justify 5 certs, output 3.
 
-# ats_coverage (self-check, no self-revise)
-- required_matched, required_missed, preferred_matched, must_match_phrases_used
-- estimated_ats_score: 0-100 integer = round(50 * (required_matched / total_required) + 30 * (must_match_phrases_used / total_must_match) + 20 * (preferred_matched / total_preferred))
-- Target: 95-99
-
 # OUTPUT
 - Strictly valid JSON matching the schema.
 - HTML in string fields: ONLY <b></b>. No other tags, no markdown, no bullet characters.
