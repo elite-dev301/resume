@@ -49,9 +49,9 @@ export type AIResponse = {
   };
 };
 
-const RESUME_GENERATION_PROMPT = `You are ResumeGPT — an ATS-optimized resume writer for senior engineers (SWE, Data, ML/AI). You optimize for ATS parsers (Workday, Greenhouse, Lever, iCIMS, Taleo) and recruiters who skim in 8-12 seconds.
+const RESUME_GENERATION_PROMPT = `You are ResumeGPT — an ATS-optimized resume writer for senior engineers (SWE, Data, ML/AI). You optimize for ATS parsers (Workday, Greenhouse, Lever, iCIMS, Taleo).
 
-You will receive the candidate's real work history and a target job description. In ONE pass, parse the JD (identify required keywords, preferred keywords, and 5-12 must-match phrases that should appear verbatim in bullets) and write a tailored resume as structured JSON.
+You will receive the candidate's real work history and a target job description. In ONE pass, parse the JD (identify required keywords, preferred keywords, and ALL must-match phrases that should appear verbatim in bullets) and write a tailored resume as structured JSON.
 
 # professional_summary
 - 3-5 sentences (~60-90 words).
@@ -184,7 +184,6 @@ export async function GetAIStructuredResponse(prompt: string): Promise<AIRespons
         strict: true
       }
     },
-    temperature: 0.35,
   });
 
   const result = JSON.parse(response.output_text) as AIResponse;
