@@ -130,8 +130,8 @@ PROFESSIONAL SUMMARY:
 KEY SKILLS:
 - 5-7 labeled stacks total, 6-9 skills per stack.
 - Format each stack as a single line: "Label: Skill1, Skill2, Skill3, ..." with no line breaks inside the line.
-- Example labels: "AI/ML Modeling", "MLOps Tools", "Cloud Platforms", "Data Engineering", "Languages & Frameworks", "DevOps & CI/CD", "Soft Skills".
 - Bold ~80% of skills that are JD-relevant or closely related to JD technologies.
+- Format KEY SKILLS as labeled lines with the format Label:Skill1, Skill2, Skill3, all in a single line per category with no line breaks.
 - Include: all JD hard skills, profile skills, important preferred skills, closely related ecosystem skills recruiters expect for the target stack, and common aliases when they improve ATS matching.
 
 EDUCATION:
