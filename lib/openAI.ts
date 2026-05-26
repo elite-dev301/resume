@@ -140,7 +140,7 @@ Degree, university, location, graduation date. No GPA, coursework, or extracurri
 PROFESSIONAL EXPERIENCE:
 Include all roles from the candidate's history unless clearly duplicate or out of scope.
 
-Format: "Company Name | Job Title | City, State | Month YYYY - Month YYYY" (use "Present" for current roles). Use dates exactly as provided. For the current role, align the job title with the JD when the candidate's actual title reasonably supports it; never inflate.
+Format: "Company Name | Job Title | City, State | Month YYYY - Month YYYY" (use "Present" for current roles). For the current role, align the job title with the JD when the candidate's actual title reasonably supports it; never inflate.
 
 SKILL COVERAGE (MANDATORY):
 - Every hard skill and soft skill from the JD Analysis must appear in the resume at least once.
@@ -181,7 +181,6 @@ Vary sentence structure and bullet length naturally. Mix implementation, archite
 
 CHRONOLOGICAL TECHNOLOGY REALISM (MANDATORY — OVERRIDES KEYWORD COVERAGE):
 A technology may appear in a role's bullets ONLY if it was generally available AND in production use during that employment period. When uncertain, omit. This rule overrides the keyword coverage rule: if a skill cannot be placed in a realistic role, it appears only in Key Skills and Summary, never forced into an older role.
-
 - Kubernetes: 2015+
 - Docker: 2014+
 - React: 2014+
@@ -189,7 +188,6 @@ A technology may appear in a role's bullets ONLY if it was generally available A
 - Transformer-based LLMs (GPT-3+, ChatGPT, RAG, prompt engineering, vector DBs): 2022+ for production use
 - Azure OpenAI, Semantic Kernel, LangChain, LangGraph, AutoGen, MCP: 2023+
 - Terraform: 2015+, Bicep: 2021+
-
 A skill may appear in Key Skills (if the candidate has it now) without appearing in older Experience entries. Modern AI keywords belong only in recent roles supported by the candidate's background.
 
 METRICS:
