@@ -48,6 +48,7 @@ function generateResumeHTML(profile: IProfile, resp: AIResponse) {
   const certificationHTML = profile.certificationHTML;
 
   return html
+    .replaceAll("{Location}", profile.location)
     .replaceAll("{Name}", profile.name)
     .replaceAll("{Email}", profile.email)
     .replaceAll("{Phone}", profile.phoneNumber)
