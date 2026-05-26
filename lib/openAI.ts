@@ -113,7 +113,8 @@ KEYWORD COVERAGE (MANDATORY):
 - Distribute occurrences naturally across Summary, Key Skills, and Experience. Do not stuff one section.
 - Prioritize skills with importance 8-10 in the Summary and most recent role.
 
-PROFESSIONAL SUMMARY:
+PROFESSIONAL SUMMARY:]
+  - The exact JD title MUST appear verbatim in the first or second sentence of the Summary.
   - 4-6 sentences (~60-90 words).
   - Lead with the EXACT years_of_experience value provided in the user prompt.
   - Mention 3-4 high-frequency required JD keywords.
@@ -151,7 +152,8 @@ Bullets per role (by recency):
 - Second most recent role: 10-12 bullets.
 - Third most recent role: 8-10 bullets.
 
-Recent roles should still carry the densest JD keyword coverage; older roles cover responsibilities truthfully without forcing modern keywords.
+Include the exact JD title at least once inside a current-role bullet describing transferable scope; older roles cover responsibilities truthfully without forcing modern keywords.
+
 
 ROLE-SENIORITY REALISM (MANDATORY):
 Older roles must reflect the candidate's actual seniority at that time, not their current seniority.
