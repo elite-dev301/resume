@@ -113,19 +113,12 @@ KEYWORD COVERAGE (MANDATORY):
 - Distribute occurrences naturally across Summary, Key Skills, and Experience. Do not stuff one section.
 - Prioritize skills with importance 8-10 in the Summary and most recent role.
 
-REQUIRED SECTIONS (in order):
-1. Header
-2. Professional Summary
-3. Key Skills
-4. Education
-5. Certifications
-6. Professional Experience
-
-HEADER:
-Full name, most recent job title, address if provided, phone, email, LinkedIn URL if provided. Never fabricate contact info.
-
 PROFESSIONAL SUMMARY:
-3-5 sentences, max 110 words. Include total years of experience, core specialization, top JD keywords (importance 8-10), industries supported, and naturally embedded soft skills.
+  - 4-6 sentences (~60-90 words).
+  - Lead with the EXACT years_of_experience value provided in the user prompt.
+  - Mention 3-4 high-frequency required JD keywords.
+  - Mention domain (Healthcare, Fintech, Cloud) if the JD emphasizes one.
+  - Wrap technical keywords in <b></b>. No personal pronouns.
 
 KEY SKILLS:
 - 5-7 labeled stacks total, 6-9 skills per stack.
@@ -133,11 +126,15 @@ KEY SKILLS:
 - Format KEY SKILLS as labeled lines with the format Label:Skill1, Skill2, Skill3, all in a single line per category with no line breaks.
 - Include: all JD hard skills, profile skills, important preferred skills, closely related ecosystem skills recruiters expect for the target stack, and common aliases when they improve ATS matching.
 
+# certifications
+- 3-5 REAL, vendor-issued technical certs relevant to the JD's primary stack.
+- Format: "[Issuer] [Cert Name] ([Code])" — e.g., "Microsoft Certified: Azure Developer Associate (AZ-204)".
+- Allowed issuers ONLY: AWS, Microsoft, Google Cloud, HashiCorp, CNCF (CKA/CKAD/CKS), Red Hat, Cisco, Oracle, Databricks.
+- Years: 2020 to current year. Distribute years.
+- If the JD doesn't justify 5 certs, output 3.
+
 EDUCATION:
 Degree, university, location, graduation date. No GPA, coursework, or extracurriculars.
-
-CERTIFICATIONS:
-Only certifications from the candidate profile. Prioritize JD-relevant ones. Never invent.
 
 PROFESSIONAL EXPERIENCE:
 Include all roles from the candidate's history unless clearly duplicate or out of scope.
@@ -207,9 +204,6 @@ FINAL CHECK (verify internally before returning):
 - Every role has >= 14 bullets, each >= 20 words, each starting with a unique strong action verb.
 - No technology appears in a role before its realistic adoption date.
 - No fabricated facts.
-
-FORMATTING RULES (MANDATORY):
-- For bold emphasis in any string field, use ONLY HTML <b></b> tags.
 
 Return ONLY JSON that matches the given schema.
 `
