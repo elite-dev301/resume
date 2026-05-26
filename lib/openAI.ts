@@ -116,7 +116,7 @@ KEYWORD COVERAGE (MANDATORY):
 PROFESSIONAL SUMMARY:]
   - The exact JD title MUST appear verbatim in the first or second sentence of the Summary.
   - 4-6 sentences (~60-90 words).
-  - Lead with the EXACT years_of_experience value provided in the user prompt.
+  - Lead with the EXACT years_of_experience value((current year) - (earliest job start year from the candidate's work history)).
   - Mention 3-4 high-frequency required JD keywords.
   - Mention domain (Healthcare, Fintech, Cloud) if the JD emphasizes one.
   - Wrap technical keywords in <b></b>. No personal pronouns.
