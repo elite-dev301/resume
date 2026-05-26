@@ -87,6 +87,7 @@ function generateResumeHTML(profile: IProfile, resp: AIResponse) {
         .map((exp, idx) =>
           experienceHTML
             .replace("{Company}", exp.company_name)
+            .replace("{Location}", exp.location)
             .replace("{Role}", idx === 0 ? resp.job_details.standardized_job_title : exp.role)
             .replace("{Period}", exp.period)
             .replace(

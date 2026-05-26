@@ -17,6 +17,7 @@ export type AIResponse = {
   professional_summary: string;
   skills: SkillCategory[];
   work_experience: {
+    location: string;
     company_name: string;
     period: string;
     role: string;
@@ -241,6 +242,7 @@ export async function GetAIStructuredResponse(prompt: string): Promise<AIRespons
                 type: "object",
                 properties: {
                   company_name: { type: "string" },
+                  location: { type: "string" },
                   period: { type: "string" },
                   role: { type: "string" },
                   projects: {
@@ -260,7 +262,7 @@ export async function GetAIStructuredResponse(prompt: string): Promise<AIRespons
                     }
                   }
                 },
-                required: ["company_name", "period", "role", "projects"],
+                required: ["company_name", "period", "role", "projects", "location"],
                 additionalProperties: false
               }
             },
