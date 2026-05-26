@@ -208,6 +208,9 @@ FINAL CHECK (verify internally before returning):
 - No technology appears in a role before its realistic adoption date.
 - No fabricated facts.
 
+FORMATTING RULES (MANDATORY):
+- For bold emphasis in any string field, use ONLY HTML <b></b> tags.
+
 Return ONLY JSON that matches the given schema.
 `
 
