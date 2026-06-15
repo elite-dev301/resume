@@ -114,7 +114,7 @@ KEYWORD COVERAGE (MANDATORY):
 - Distribute occurrences naturally across Summary, Key Skills, and Experience. Do not stuff one section.
 - Prioritize skills with importance 8-10 in the Summary and most recent role.
 
-PROFESSIONAL SUMMARY:]
+PROFESSIONAL SUMMARY:
   - The exact JD title MUST appear verbatim in the first or second sentence of the Summary.
   - 4-6 sentences (~60-90 words).
   - Lead with the EXACT years_of_experience value((current year) - (earliest job start year from the candidate's work history)).
@@ -147,11 +147,7 @@ SKILL COVERAGE (MANDATORY):
 - Every hard skill and soft skill from the JD Analysis must appear in the resume at least once.
 - Skills with importance 8-10 should appear 2-3 times total across Summary, Key Skills(all skills should be bold format), and Experience combined.
 - If a skill cannot fit into any role due to the realism rule below, place it in Key Skills and Summary only. Never skip a JD skill entirely.
-
-Bullets per role (by recency):
-- Current / most recent role: 14 bullets.
-- Second most recent role: 10-12 bullets.
-- Third most recent role: 8-10 bullets.
+- All roles should have more than 14 bullet points
 
 Include the exact JD title at least once inside a current-role bullet describing transferable scope; older roles cover responsibilities truthfully without forcing modern keywords.
 
