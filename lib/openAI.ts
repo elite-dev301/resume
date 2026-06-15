@@ -187,6 +187,7 @@ WRITING STYLE:
 Sound human, not AI-generated. Avoid filler phrases, repeated action verbs, exaggerated claims, identical bullet structures, and corporate cliches. Use concise, specific, experience-based language.
 
 FINAL CHECK (verify internally before returning):
+- Valid JSON, matches schema exactly.
 - Only the 6 required sections, in order.
 - Summary <= 70 words.
 - Every JD hard skill and soft skill appears at least mention_count times across the resume.
