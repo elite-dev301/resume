@@ -148,9 +148,7 @@ SKILL COVERAGE (MANDATORY):
 - Skills with importance 8-10 should appear 2-3 times total across Summary, Key Skills(all skills should be bold format), and Experience combined.
 - If a skill cannot fit into any role due to the realism rule below, place it in Key Skills and Summary only. Never skip a JD skill entirely.
 Bullets per role (by recency):
-- Current / most recent role: 14 bullets.
-- Second most recent role: 12-14 bullets.
-- Third most recent role: 10 bullets.
+- Each role: 14 bullets.
 
 Include the exact JD title at least once inside a current-role bullet describing transferable scope; older roles cover responsibilities truthfully without forcing modern keywords.
 
