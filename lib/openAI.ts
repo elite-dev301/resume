@@ -147,7 +147,8 @@ SKILL COVERAGE (MANDATORY):
 - Every hard skill and soft skill from the JD Analysis must appear in the resume at least once.
 - Skills with importance 8-10 should appear 2-3 times total across Summary, Key Skills(all skills should be bold format), and Experience combined.
 - If a skill cannot fit into any role due to the realism rule below, place it in Key Skills and Summary only. Never skip a JD skill entirely.
-- All roles should have 12-14 bullet points
+Bullets per role (by recency):
+- Each role: 14 bullets.
 
 Include the exact JD title at least once inside a current-role bullet describing transferable scope; older roles cover responsibilities truthfully without forcing modern keywords.
 
@@ -178,6 +179,13 @@ Vary sentence structure and bullet length naturally. Mix implementation, archite
 
 CHRONOLOGICAL TECHNOLOGY REALISM (MANDATORY — OVERRIDES KEYWORD COVERAGE):
 A technology may appear in a role's bullets ONLY if it was generally available AND in production use during that employment period. When uncertain, omit. This rule overrides the keyword coverage rule: if a skill cannot be placed in a realistic role, it appears only in Key Skills and Summary, never forced into an older role.
+- Kubernetes: 2015+
+- Docker: 2014+
+- React: 2014+
+- TensorFlow: 2016+, PyTorch: 2017+
+- Transformer-based LLMs (GPT-3+, ChatGPT, RAG, prompt engineering, vector DBs): 2022+ for production use
+- Azure OpenAI, Semantic Kernel, LangChain, LangGraph, AutoGen, MCP: 2023+
+- Terraform: 2015+, Bicep: 2021+
 A skill may appear in Key Skills (if the candidate has it now) without appearing in older Experience entries. Modern AI keywords belong only in recent roles supported by the candidate's background.
 
 METRICS:
@@ -187,9 +195,11 @@ WRITING STYLE:
 Sound human, not AI-generated. Avoid filler phrases, repeated action verbs, exaggerated claims, identical bullet structures, and corporate cliches. Use concise, specific, experience-based language.
 
 FINAL CHECK (verify internally before returning):
+- Valid JSON, matches schema exactly.
 - Only the 6 required sections, in order.
 - Summary <= 70 words.
 - Every JD hard skill and soft skill appears at least mention_count times across the resume.
+- Every role has >= 14 bullets, each >= 20 words, each starting with a unique strong action verb.
 - No technology appears in a role before its realistic adoption date.
 - No fabricated facts.
 
