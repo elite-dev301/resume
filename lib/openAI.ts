@@ -114,7 +114,7 @@ KEYWORD COVERAGE (MANDATORY):
 - Distribute occurrences naturally across Summary, Key Skills, and Experience. Do not stuff one section.
 - Prioritize skills with importance 8-10 in the Summary and most recent role.
 
-PROFESSIONAL SUMMARY:]
+PROFESSIONAL SUMMARY:
   - The exact JD title MUST appear verbatim in the first or second sentence of the Summary.
   - 4-6 sentences (~60-90 words).
   - Lead with the EXACT years_of_experience value((current year) - (earliest job start year from the candidate's work history)).
