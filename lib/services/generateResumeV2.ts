@@ -7,7 +7,6 @@ function getPrompt(profile: IProfile, jd: string) {
   const prompt = `
 **Work Experience**:
 ${profile.experience}
-${profile.otherPrompt}
 
 **Target Job Description**:
 ${jd}
